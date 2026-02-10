@@ -7,8 +7,8 @@
 
   <style>
     :root{
-      --red:#991b1b;       /* main */
-      --red-dark:#7f1d1d;  /* hover */
+      --red:#991b1b;
+      --red-dark:#7f1d1d;
       --bg:#ffffff;
     }
 
@@ -26,21 +26,21 @@
     .banner{
       width:100%;
       background:#ffffff;
-      padding:18px 0;
+      padding:26px 0 22px;
       margin-bottom:22px;
       border-bottom:3px solid var(--red);
       border-radius:0 0 18px 18px;
     }
     .banner img{
-      max-width:220px;
-      width:70%;
+      max-width:300px;   /* 🔥 logo 放大 */
+      width:90%;
       height:auto;
       display:inline-block;
     }
 
     h1{
       color: var(--red);
-      margin: 6px 0;
+      margin: 8px 0 6px;
       font-size:26px;
     }
 
@@ -114,26 +114,4 @@
       "Great experience overall. Professional service and very smooth process. Highly recommended!",
       "Very satisfied with the service. Everything was explained clearly and handled efficiently.",
       "Excellent service with great attention to detail. The whole experience was pleasant and easy. 5 stars!",
-      "Fast, reliable, and professional. Good workmanship and clear communication throughout.",
-      "Really happy with the overall experience. Friendly staff and solid service quality."
-    ];
-
-    function generateReview(){
-      const r = reviews[Math.floor(Math.random() * reviews.length)];
-      document.getElementById("reviewText").value = r;
-    }
-
-    function copyAndOpen(){
-      const t = document.getElementById("reviewText").value;
-      if(!t){
-        alert("Please generate a review first.");
-        return;
-      }
-      navigator.clipboard.writeText(t).then(()=>{
-        window.open(GOOGLE_MAPS_URL, "_blank");
-      });
-    }
-  </script>
-
-</body>
-</html>
+      "Fast, reliable, and professional. Good workmanship and
