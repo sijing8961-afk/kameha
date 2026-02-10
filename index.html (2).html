@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VC Electronic Sdn Bhd · Google Reviews</title>
+
+  <style>
+    :root{
+      --red:#991b1b;       /* main */
+      --red-dark:#7f1d1d;  /* hover */
+      --bg:#ffffff;
+    }
+
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background: var(--bg);
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0 16px 32px;
+      text-align: center;
+      color:#111;
+    }
+
+    /* Logo banner (white background, red accent) */
+    .banner{
+      width:100%;
+      background:#fff;
+      padding: 18px 0;
+      margin-bottom: 22px;
+      border-bottom: 3px solid var(--red);
+      border-radius: 0 0 18px 18px;
+    }
+    .banner img{
+      max-width: 220px;
+      width: 70%;
+      height: auto;
+      display: inline-block;
+    }
+
+    h1{
+      color: var(--red);
+      margin: 6px 0 6px;
+      font-size: 26px;
+    }
+    p{
+      color:#555;
+      margin: 0 0 18px;
+      font-size: 14px;
+    }
+
+    textarea{
+      width:100%;
+      min-height:120px;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid #ddd;
+      font-size:15px;
+      box-sizing:border-box;
+    }
+
+    button{
+      width:100%;
+      padding:16px;
+      margin-top:12px;
+      font-size:16px;
+      border-radius:16px;
+      border:none;
+      cursor:pointer;
+    }
+    .primary{
+      background: var(--red);
+      color:#fff;
+    }
+    .primary:hover{
+      background: var(--red-dark);
+    }
+
+    .hint{
+      margin-top:16px;
+      font-size:13px;
+      color:#666;
+      line-height:1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- KAMEHA Logo Banner -->
+  <div class="banner">
+    <img src="kameha-logo.jpeg" alt="KAMEHA Logo">
+  </div>
+
+  <h1>VC Electronic Sdn Bhd</h1>
+  <p>View Google Reviews · Copy & Paste Your Review</p>
+
+  <textarea id="reviewText" placeholder="Click “Generate Review”"></textarea>
+
+  <button class="primary" onclick="generateReview()">Generate Review</button>
+  <button class="primary" onclick="copyAndOpen()">Copy & Open Google Reviews</button>
+
+  <div class="hint">
+    On Google Maps, tap ⭐⭐⭐⭐⭐<br>
+    Paste your review and tap Post
+  </div>
+
+  <script>
+    const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/ebuPunTz2Cv2H5jw6";
+
+    const reviews = [
+      "Great experience overall. Professional service and very smooth process. Highly recommended!",
+      "Very satisfied with the service. Everything was explained clearly and handled efficiently.",
+      "Excellent service with great attention to detail. The whole experience was pleasant and easy. 5 stars!",
+      "Fast, reliable, and professional. Good workmanship and clear communication throughout.",
+      "Really happy with the overall experience. Friendly staff and solid service quality."
+    ];
+
+    function generateReview(){
+      const r = reviews[Math.floor(Math.random() * reviews.length)];
+      document.getElementById("reviewText").value = r;
+    }
+
+    function copyAndOpen(){
+      const t = document.getElementById("reviewText").value;
+      if(!t){
+        alert("Please generate a review first.");
+        return;
+      }
+      navigator.clipboard.writeText(t).then(()=>{
+        window.open(GOOGLE_MAPS_URL, "_blank");
+      });
+    }
+  </script>
+
+</body>
+</html>
